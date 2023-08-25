@@ -1,0 +1,43 @@
+---
+
+# installing apache server on debian distribution
+
+- hosts: servers
+  become: yes
+  tasks:
+	- name: install apache2
+	  apt:
+	     name: apache2
+             state: present
+          when: ansible_os_family == "Debian"
+          notyfy: restart apache2
+  handlers:
+        - name: restart apache2
+          service:
+              name: apache2
+              state: restarted
+
+# installing apache server on RedHat distribution
+
+        - name: install httpd
+          yum:
+             name: httpd
+             state: present
+          when: ansible_os_family == "RedHat"
+          notyfy: restart httpd
+  handlers:
+        - name: restart httpd
+          service:
+              name: httpd
+              state: restarted
+
+# creating multiple user / adding lists of users
+
+        - name: add a list of user
+          user:
+            name: "{{item}}"
+            state: present
+          loop:
+               - adarsh
+               - amit
+               - pushpendra
