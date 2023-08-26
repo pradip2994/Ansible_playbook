@@ -1,0 +1,11 @@
+---
+#Installing apache2
+
+- name: installing apache2 server
+  hosts: servers
+  become: true
+  tasks:
+    - name: removing apache2
+      apt:
+          name: apache2
+          state: present
