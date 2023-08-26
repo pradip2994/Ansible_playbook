@@ -1,0 +1,11 @@
+---
+
+- name: install apache server using of handlers
+  hosts: servers
+  become: true
+  tasks:
+    - name: install apache2
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
