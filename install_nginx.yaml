@@ -1,10 +1,10 @@
 ---
 
-- name: install apache server using of handlers
+- name: install nginx server using of handlers
   hosts: servers
   become: true
   tasks:
-    - name: install apache2
+    - name: install nginx
       apt:
         name: nginx
         state: present
