@@ -1,1 +1,12 @@
+---
 
+#Remove Apache2 package
+
+- name: installing servers
+  hosts: servers
+  become: true
+  tasks:
+    - name: removing apache2
+      apt:
+          name: apache2
+          state: absent
