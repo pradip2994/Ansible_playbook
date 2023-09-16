@@ -16,5 +16,5 @@
          state: started
     - name: deploy webpage
       copy:
-        scr: index.html
+        src: index.html
         dest: /var/www/html/index.html
